@@ -1,0 +1,41 @@
+.component {
+  flex-basis: 665px;
+  position: absolute;
+  width: 665px;
+  height: 240px;
+  margin: 0 auto;
+  bottom: 220px;
+}
+
+.wheel {
+  position: absolute;
+  bottom: -15%;
+  width: 15%;
+  transform: translate3d(-50%, -50%, 0);
+
+  &.front {
+    left: 16.3%;
+  }
+
+  &.back {
+    left: 76.5%;
+  }
+}
+
+.mainframe {
+  position: absolute;
+  bottom: 5%;
+  width: 100%;
+  animation: shake linear infinite .4s;
+}
+
+@keyframes shake {
+  0% { transform: translateY(1px);}
+  1% { transform: translateY(0px);}
+  30% { transform: translateY(1px);}
+  31% { transform: translateY(0px);}
+  55% { transform: translate(-1px, 1px);}
+  56% { transform: translate(0px, 0px);}
+  80% { transform: translateY(1px);}
+  81% { transform: translateY(0px);}
+}

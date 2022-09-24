@@ -1,0 +1,6 @@
+.DS_Store
+.idea
+_parts
+node_modules
+dist
+mfs
