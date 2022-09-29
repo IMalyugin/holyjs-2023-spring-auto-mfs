@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/',
+  entry: './',
   output: {
     filename: 'static/[name].js',
     publicPath: 'auto',
@@ -55,13 +55,14 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './server/views/index.html',
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: './server/views/index.html',
+    // }),
     new ModuleFederationPlugin({
-      name: 'app',
-      remotes: {
-        '@beemfs/af-vehicle': 'vehicle@http://localhost:8081/remoteEntry.js',
+      name: 'vehicle',
+      filename: 'remoteEntry.js',
+      exposes: {
+        '.': '.'
       },
       shared: {
         react: { singleton: true },
@@ -73,6 +74,6 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'dist'),
     },
-    port: 8080,
+    port: 8081,
   }
 };
