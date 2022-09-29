@@ -2,12 +2,13 @@
   "name": "@beemfs/af-vehicle",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack-cli serve",
+    "start": "cross-env PORT=8081 webpack-cli serve",
     "clean": "rm -rf dist"
   },
   "dependencies": {
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "@beemfs/af-chassis": "^1.0.0"
+    "@beemfs/af-chassis": "^1.0.0",
+    "@beemfs/af-shared": "^1.0.0"
   }
 }

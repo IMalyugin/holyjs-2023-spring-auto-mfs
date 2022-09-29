@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "webpack-cli serve",
+    "start": "cross-env PORT=8080 webpack-cli serve",
     "server": "node server/index.js",
     "clean": "rm -rf dist"
   },
   "dependencies": {
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "@beemfs/af-shared": "^1.0.0",
     "@beemfs/af-vehicle": "^1.0.0",
     "@beemfs/af-landscape": "^1.0.0"
   }
