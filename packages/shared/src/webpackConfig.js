@@ -1,9 +1,10 @@
 const path = require('path');
 
-const config = {
+const config = (mfName, mfVersion = '1.0.0') => ({
   mode: 'development',
   output: {
     filename: 'static/[name].js',
+    path: path.resolve(__dirname, `../../../mfs/${mfName}/${mfVersion}`),
     publicPath: 'auto',
     assetModuleFilename: `static/assets/[name].[hash][ext][query]`,
   },
@@ -58,7 +59,7 @@ const config = {
     },
     port: process.env.PORT,
   }
-};
+});
 
 module.exports = {
   config,

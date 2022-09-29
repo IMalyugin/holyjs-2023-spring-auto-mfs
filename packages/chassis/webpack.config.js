@@ -1,7 +1,7 @@
 const { config, useModuleFederationPlugin } = require('@beemfs/af-shared');
 
 module.exports = {
-  ...config,
+  ...config('chassis'),
   entry: './',
   plugins: [
     useModuleFederationPlugin({
