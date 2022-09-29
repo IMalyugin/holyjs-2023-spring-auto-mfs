@@ -16,6 +16,8 @@ const mfs = {
   },
 };
 
+const getMfPort = (mfName) => mfs[mfName].port;
+
 const useModuleFederationPlugin = ({
   name,
   exposes,
@@ -37,11 +39,12 @@ const useModuleFederationPlugin = ({
 const remoteEntry = (name) => {
   const { pkgName, port } = mfs[name];
   return {
-    [pkgName]: `${name}@http://localhost:${port}/remoteEntry.js`
+    [pkgName]: `${name}@/mfs/${name}/1.0.0/remoteEntry.js`
   };
 };
 
 module.exports = {
   useModuleFederationPlugin,
   remoteEntry,
+  getMfPort,
 };
