@@ -1,5 +1,21 @@
 const { ModuleFederationPlugin } = require('webpack').container;
 
+
+const mfs = {
+  'vehicle': {
+    pkgName: '@beemfs/af-vehicle',
+    port: 8081,
+  },
+  'landscape': {
+    pkgName: '@beemfs/af-landscape',
+    port: 8082,
+  },
+  'chassis': {
+    pkgName: '@beemfs/af-chassis',
+    port: 8083,
+  },
+};
+
 const useModuleFederationPlugin = ({
   name,
   exposes,
@@ -17,6 +33,15 @@ const useModuleFederationPlugin = ({
   })
 );
 
+
+const remoteEntry = (name) => {
+  const { pkgName, port } = mfs[name];
+  return {
+    [pkgName]: `${name}@http://localhost:${port}/remoteEntry.js`
+  };
+};
+
 module.exports = {
   useModuleFederationPlugin,
+  remoteEntry,
 };
