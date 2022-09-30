@@ -1,3 +1,4 @@
+const { autoRemotes } = require('./remotesDiscovery');
 const { ModuleFederationPlugin } = require('webpack').container;
 
 
@@ -21,12 +22,11 @@ const getMfPort = (mfName) => mfs[mfName].port;
 const useModuleFederationPlugin = ({
   name,
   exposes,
-  remotes,
-}) => (
+}, cwd = process.cwd()) => (
   new ModuleFederationPlugin({
     name,
     filename: 'remoteEntry.js',
-    remotes,
+    remotes: autoRemotes(cwd),
     exposes,
     shared: {
       react: { singleton: true },
@@ -35,16 +35,7 @@ const useModuleFederationPlugin = ({
   })
 );
 
-
-const remoteEntry = (name) => {
-  const { pkgName, port } = mfs[name];
-  return {
-    [pkgName]: `${name}@/mfs/${name}/1.0.0/remoteEntry.js`
-  };
-};
-
 module.exports = {
   useModuleFederationPlugin,
-  remoteEntry,
   getMfPort,
 };

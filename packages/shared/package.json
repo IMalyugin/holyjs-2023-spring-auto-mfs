@@ -2,5 +2,6 @@
   "name": "@beemfs/af-shared",
   "version": "1.0.0",
   "dependencies": {
+    "load-json-file": "^6.2.0"
   }
 }
