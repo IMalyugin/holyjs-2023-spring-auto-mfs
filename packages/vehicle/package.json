@@ -4,6 +4,10 @@
   "scripts": {
     "start": "cross-env PORT=8081 webpack-cli serve"
   },
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
   "dependencies": {
     "react": "^16.13.0",
     "react-dom": "^16.13.0",

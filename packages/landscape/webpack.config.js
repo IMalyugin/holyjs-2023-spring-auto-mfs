@@ -4,10 +4,6 @@ module.exports = {
   ...config,
   entry: './',
   plugins: [
-    useModuleFederationPlugin({
-      exposes: {
-        './Landscape': './Landscape'
-      },
-    }),
+    useModuleFederationPlugin(),
   ],
 };

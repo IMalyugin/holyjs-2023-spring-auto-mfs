@@ -4,6 +4,15 @@
   "scripts": {
     "start": "cross-env PORT=8082 webpack-cli serve"
   },
+  "exports": {
+    ".": "./index.js",
+    "./Landscape": "./src/Landscape/index.jsx",
+    "./SampleExport": {
+      "default": "./src/Landscape/index.jsx",
+      "cjs": "./cjs/Landscape/index.jsx"
+    },
+    "./package.json": "./package.json"
+  },
   "dependencies": {
     "react": "^16.13.0",
     "react-dom": "^16.13.0",

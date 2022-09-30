@@ -13,6 +13,7 @@ class Package {
 
   get pkgName() { return this.pkg.name; }
   get version() { return this.pkg.version; }
+  get exports() { return this.pkg.exports; }
 
   getDependencies() {
     return [

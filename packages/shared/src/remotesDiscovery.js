@@ -1,4 +1,5 @@
 const { Package } = require('./package');
+const { resolve } = require('resolve.exports');
 
 const getDependentMfs = (cwd = process.cwd()) => {
   const pkg = Package.fromCwd(cwd);
@@ -17,6 +18,23 @@ const autoRemotes = (cwd) => {
   }), {});
 }
 
+const autoExposes = (pkg) => {
+  if (pkg.exports) {
+    return Object.keys(pkg.exports).filter(isPublicExport).reduce((accum, exportPath) => ({
+      ...accum,
+      [exportPath]: resolve(pkg, exportPath),
+    }), {});
+  }
+
+  // else use module/main
+
+  // else use './index' file in root;
+
+  // else throw an error
+}
+
+const isPublicExport = (exportPath) => exportPath !== './package.json';
 module.exports = {
   autoRemotes,
+  autoExposes,
 };
