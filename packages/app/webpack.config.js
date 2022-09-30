@@ -8,8 +8,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './server/views/index.html',
     }),
-    useModuleFederationPlugin({
-      name: 'app',
-    }),
+    useModuleFederationPlugin(),
   ],
 };

@@ -1,4 +1,5 @@
 const { autoRemotes } = require('./remotesDiscovery');
+const { Package } = require('./Package');
 const { ModuleFederationPlugin } = require('webpack').container;
 
 
@@ -20,11 +21,10 @@ const mfs = {
 const getMfPort = (mfName) => mfs[mfName].port;
 
 const useModuleFederationPlugin = ({
-  name,
   exposes,
-}, cwd = process.cwd()) => (
+} = {}, cwd = process.cwd()) => (
   new ModuleFederationPlugin({
-    name,
+    name: Package.fromCwd(cwd).getInfo().name,
     filename: 'remoteEntry.js',
     remotes: autoRemotes(cwd),
     exposes,
