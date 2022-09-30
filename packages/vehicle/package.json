@@ -9,5 +9,9 @@
     "react-dom": "^16.13.0",
     "@beemfs/af-chassis": "^1.0.0",
     "@beemfs/af-shared": "^1.0.0"
+  },
+  "beemfs": {
+    "name": "vehicle",
+    "port": 8081
   }
 }

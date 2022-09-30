@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { config, remoteEntry, useModuleFederationPlugin } = require('@beemfs/af-shared');
+const { config, useModuleFederationPlugin } = require('@beemfs/af-shared');
 
 module.exports = {
   ...config('app'),
@@ -10,10 +10,6 @@ module.exports = {
     }),
     useModuleFederationPlugin({
       name: 'app',
-      remotes: {
-        ...remoteEntry('vehicle'),
-        ...remoteEntry('landscape'),
-      },
     }),
   ],
 };
