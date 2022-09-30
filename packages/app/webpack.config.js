@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { config, useModuleFederationPlugin } = require('@beemfs/af-shared');
 
 module.exports = {
-  ...config,
+  ...config(),
   entry: './src/',
   plugins: [
     new HtmlWebpackPlugin({

@@ -1,7 +1,6 @@
 const express = require('express');
 const request = require('request');
-const { getMfPort } = require('@beemfs/af-shared');
-
+const { discoverBonjourPort } = require('./discovery');
 const app = express();
 
 app.get(['/', '/static/*'], (req, res, next) => {
@@ -9,10 +8,11 @@ app.get(['/', '/static/*'], (req, res, next) => {
     .on('response', (response) => response.pipe(res))
 });
 
-
 app.get(['/mfs/:name/:version/*'], (req, res, next) => {
+  const { name } = req.params;
   const relativeUrl = req.url.split('/').slice(4).join('/');
-  request(`http://localhost:${getMfPort(req.params.name)}/${relativeUrl}`)
+  const port = discoverBonjourPort(name);
+  request(`http://localhost:${port}/${relativeUrl}`)
     .on('response', (response) => response.pipe(res))
 });
 
