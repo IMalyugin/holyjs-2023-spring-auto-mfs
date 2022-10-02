@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Wheel } from '../Wheel';
+import { Wheel } from '@beemfs/af-chassis';
 
 import carSrc from './assets/car-yellow.png';
 import styles from './styles.pcss';
