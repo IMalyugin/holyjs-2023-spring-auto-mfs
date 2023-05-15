@@ -1,6 +1,10 @@
 const path = require('path');
 const loadJsonFile = require('load-json-file');
 
+const convertPkgNameToMf = (pkgName) => pkgName
+  .replace(/^@/, '')
+  .replace('/', '__')
+  .replace(/-/g, '_');
 
 class Package {
   constructor(pkg) {
@@ -31,7 +35,9 @@ class Package {
   }
 
   getMfData() {
-    return this.pkg.beemfs;
+    return this.pkg.beemfs ? {
+      name: convertPkgNameToMf(this.pkgName),
+    } : undefined;
   }
 
   getInfo = () => ({
