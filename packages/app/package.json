@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "cross-env PORT=8080 webpack-cli serve",
     "server": "node server/index.js"
   },
   "dependencies": {
