@@ -1,4 +1,4 @@
-const { config, useModuleFederationPlugin, remoteEntry } = require('@beemfs/af-shared');
+const { config, useModuleFederationPlugin } = require('@beemfs/af-shared');
 
 module.exports = {
   ...config,
@@ -6,9 +6,6 @@ module.exports = {
   plugins: [
     useModuleFederationPlugin({
       name: 'vehicle',
-      remotes: {
-        ...remoteEntry('chassis'),
-      },
       exposes: {
         '.': '.'
       },
