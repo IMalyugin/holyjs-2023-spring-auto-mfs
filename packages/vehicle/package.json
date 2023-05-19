@@ -15,7 +15,6 @@
     "@beemfs/af-shared": "^1.0.0"
   },
   "beemfs": {
-    "name": "vehicle",
-    "port": 8081
+    "name": "vehicle"
   }
 }

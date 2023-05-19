@@ -14,7 +14,6 @@
     "@beemfs/af-shared": "^1.0.0"
   },
   "beemfs": {
-    "name": "chassis",
-    "port": 8083
+    "name": "chassis"
   }
 }

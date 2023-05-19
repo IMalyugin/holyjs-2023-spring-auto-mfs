@@ -19,7 +19,6 @@
     "@beemfs/af-shared": "^1.0.0"
   },
   "beemfs": {
-    "name": "landscape",
-    "port": 8082
+    "name": "landscape"
   }
 }
