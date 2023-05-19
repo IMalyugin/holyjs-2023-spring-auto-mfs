@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Landscape } from '../Landscape';
-import { Vehicle } from '../Vehicle';
+import { Landscape } from '@beemfs/af-landscape';
+import { Vehicle } from '@beemfs/af-vehicle';
 
 export const App = () => (
   <Landscape>
