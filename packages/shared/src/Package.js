@@ -7,8 +7,9 @@ const convertPkgNameToMf = (pkgName) => pkgName
   .replace(/-/g, '_');
 
 class Package {
-  constructor(pkg) {
+  constructor(pkg, { mfPatterns = /^@beemfs\// } = {}) {
     this.pkg = pkg;
+    this.options = { mfPatterns };
   }
 
   static fromCwd(cwd) {
@@ -31,11 +32,11 @@ class Package {
   }
 
   isMF() {
-    return !!this.getMfData();
+    return this.options.mfPatterns.test(this.pkgName);
   }
 
   getMfData() {
-    return this.pkg.beemfs ? {
+    return this.isMF() ? {
       name: convertPkgNameToMf(this.pkgName),
     } : undefined;
   }
