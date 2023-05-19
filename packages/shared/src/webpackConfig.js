@@ -1,11 +1,14 @@
 const path = require('path');
 const { Package } = require('./Package');
+const { useModuleFederationPlugin } = require("./webpackUtils");
 
-const config = (cwd = process.cwd()) => {
+const config = (cwd = process.cwd(), { port = process.env.PORT } = {}) => {
   const { name: mfName } = Package.fromCwd(cwd).getInfo();
-  const port = process.env.PORT;
+
   return {
+    context: cwd,
     mode: 'development',
+    entry: './',
     output: {
       filename: 'static/[name].js',
       publicPath: 'auto',
@@ -55,7 +58,9 @@ const config = (cwd = process.cwd()) => {
         }
       ],
     },
-    plugins: [],
+    plugins: [
+        useModuleFederationPlugin(cwd)
+    ],
     devServer: {
       bonjour: {
         host: 'localhost',

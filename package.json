@@ -8,7 +8,7 @@
   "author": "Ivan Malyugin",
   "license": "ISC",
   "scripts": {
-    "start": "npm start --workspace=@beemfs/af-app",
+    "start": "node ./devServer",
     "server": "npm run server --workspace=@beemfs/af-app"
   },
   "devDependencies": {
