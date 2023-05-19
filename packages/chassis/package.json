@@ -1,6 +1,9 @@
 {
   "name": "@beemfs/af-chassis",
   "version": "1.0.0",
+  "scripts": {
+    "start": "cross-env PORT=8083 webpack-cli serve"
+  },
   "dependencies": {
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
