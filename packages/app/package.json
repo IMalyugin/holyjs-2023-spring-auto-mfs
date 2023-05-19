@@ -12,5 +12,8 @@
     "@beemfs/af-shared": "^1.0.0",
     "@beemfs/af-vehicle": "^1.0.0",
     "@beemfs/af-landscape": "^1.0.0"
+  },
+  "beemfs": {
+    "name": "app"
   }
 }

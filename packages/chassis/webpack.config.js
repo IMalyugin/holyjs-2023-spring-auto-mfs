@@ -5,7 +5,6 @@ module.exports = {
   entry: './',
   plugins: [
     useModuleFederationPlugin({
-      name: 'chassis',
       exposes: {
         '.': '.'
       },
